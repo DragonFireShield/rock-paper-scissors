@@ -1,5 +1,6 @@
 const hands = ['rock', 'paper', 'scissors'];
 const heading = document.createElement('h1');
+const choiceDiv = document.createElement('div');
 const rockButton = document.createElement('button');
 const paperButton = document.createElement('button');
 const scissorsButton = document.createElement('button');
@@ -17,18 +18,17 @@ resultPlayer.textContent = '?';
 resultComputerScore.textContent = '0';
 resultPlayerScore.textContent = '0';
 
-document.body.appendChild(heading);
-document.body.appendChild(rockButton);
-document.body.appendChild(paperButton);
-document.body.appendChild(scissorsButton);  
+document.body.appendChild(heading); 
+document.body.appendChild(choiceDiv)
+choiceDiv.appendChild(rockButton)
+choiceDiv.appendChild(paperButton)
+choiceDiv.appendChild(scissorsButton)
 document.body.appendChild(resultComputer);  
 document.body.appendChild(resultPlayer);  
 document.body.appendChild(resultComputerScore);  
 document.body.appendChild(resultPlayerScore);  
 
-rockButton.addEventListener('click', (e) => playRound(getComputerChoice(), e.target.textContent.toLowerCase()))
-paperButton.addEventListener('click', (e) => playRound(getComputerChoice(), e.target.textContent.toLowerCase()))
-scissorsButton.addEventListener('click', (e) => playRound(getComputerChoice(), e.target.textContent.toLowerCase()))
+choiceDiv.addEventListener('click', (e) => playRound(getComputerChoice(), e.target.textContent.toLowerCase()))
 
 function getComputerChoice() {
     const random = Number(Math.floor(Math.random() * 3));
